@@ -1,0 +1,19 @@
+def attendance_sequences(days): # The total number of days in the academic year.
+
+  total_sequences = 2**days
+  invalid_sequences = (days - 3) * days / 2.0  # Floating-point division for accuracy
+
+  valid_sequences = total_sequences - invalid_sequences
+
+  numerator = f"({days - 3}) * {days} / 2" 
+
+  denominator = f"{total_sequences} - {invalid_sequences}" 
+
+  # Probability as a fraction
+  probability_fraction = f"{numerator} / {denominator}"
+
+  return probability_fraction
+
+
+probability_5_days = attendance_sequences(5)
+print(probability_5_days)  # Output: (2) * 5 / 2  /  (32 - (2) * 5 / 2)
